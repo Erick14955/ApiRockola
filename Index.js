@@ -23,7 +23,7 @@ app.get('/api/music', (req, res) =>{
 });
 
 //Agregar canciones a lista de reproduccion
-app.post('/api/music/:id', (req, res) =>{
+app.post('/api/music/post/:id', (req, res) =>{
     const music = musics.find(c => c.id === parseInt(req.params.id));
     const play = playlist.find(c => c.idsong === parseInt(req.params.id));
     if(music === play) res.status(404).send('La cancion ya esta en la lista de reproduccion');
