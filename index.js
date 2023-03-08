@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express();
+const app = express.Router();
 
 const musics = [
     {id: 1, artista: 'Adoradores', Cancion: 'Mi pastor', Duracion: '03:58'},
@@ -26,7 +26,7 @@ app.get('/api/music', (req, res) =>{
 app.post('/api/music/post/:id', (req, res) =>{
     const music = musics.find(c => c.id === parseInt(req.params.id));
     const play = playlist.find(c => c.idsong === parseInt(req.params.id));
-    if(music === play) res.status(404).send('La cancion ya esta en la lista de reproduccion');
+    if(music.id == play.id) res.status(404).send('La cancion ya esta en la lista de reproduccion');
     const song = {
         id: playlist.length + 1,
         idsong: music.id,
