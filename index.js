@@ -26,7 +26,6 @@ app.get('/api/music', (req, res) =>{
 app.post('/api/music/post/:id', (req, res) =>{
     const music = musics.find(c => c.id === parseInt(req.params.id));
     const play = playlist.find(c => c.idsong === parseInt(req.params.id));
-    if(music.id == play.id) res.status(404).send('La cancion ya esta en la lista de reproduccion');
     const song = {
         id: playlist.length + 1,
         idsong: music.id,
@@ -54,3 +53,4 @@ app.get('/api/playlist', (req, res) =>{
 });
 
 const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listening on port ${port}...`));
