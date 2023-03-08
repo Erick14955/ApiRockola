@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express.Router();
+const app = express();
 
 const musics = [
     {id: 1, artista: 'Adoradores', Cancion: 'Mi pastor', Duracion: '03:58'},
